@@ -7,6 +7,44 @@ const statNames = [
     { key: "CHA", name: "Charisma", bonus: "One ability score" }
 ];
 
+const callings = [
+    {
+        calling: "Fighter",
+        startingAC: 5,
+        startingHP: () => roll1dx(8),
+        armor: "Chainmail",
+        weapon: "Melee Two-Handed (greatsword, warhammer, greataxe, etc.)",
+        gear: ""
+    },
+    {
+        calling: "Wizard",
+        startingAC: 10,
+        startingHP: () => roll1dx(4),
+        armor: "None",
+        weapon: "Improvised (staff, knife, etc.)",
+        gear: "Spellbook"
+    },
+    {
+        calling: "Rogue",
+        startingAC: 7,
+        startingHP: () => roll1dx(6),
+        armor: "Leather",
+        weapon: "Ranged (bow, sling, crossbow, etc.)",
+        gear: "Thieves Tools"
+    }
+];
+
+const startingGear = [
+    {item: "Torches", action: roll1dx(6)},
+    {item: "Coins", action: roll1dx(10)},
+    {item: "Supplies", action: roll1dx(4)},
+];
+
+
+function roll1dx(die_size) {
+    return Math.floor(Math.random() * die_size) +1;
+}
+
 function roll4d4() {
     return Array.from({ length: 4 }, () =>
         Math.floor(Math.random() * 4) + 1
@@ -29,11 +67,54 @@ function generateBonuses(abilities) {
     );
 }
 
+function getHighestScore(abilities) {
+    return Math.max(...Object.values(abilities));
+}
+
+function getTopAbilities(abilities) {
+    const highest = getHighestScore(abilities);
+
+    return Object.entries(abilities)
+        .filter(([_, value]) => value === highest)
+        .map(([key]) => key);
+}
+
+function pickRandom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+function getBestAbility(abilities) {
+    const topAbilities = getTopAbilities(abilities);
+    return pickRandom(topAbilities);
+}
+
+function determineCalling(abilities) {
+    const topStats = getTopAbilities(abilities);
+
+    const viableCallings = callings.filter(c =>
+        topStats.includes(c.stat)
+    );
+
+    if (viableCallings.length === 0) {
+        return null;
+    }
+
+    return viableCallings[Math.floor(Math.random() * viableCallings.length)];
+}
+
 function createCharacter() {
     return {
         abilities: {},
         bonuses: {}
     };
+}
+
+function renderCalling(character) {
+    if (!character.calling) {
+        return `
+            <h3>Calling</h3>
+        `
+    }
 }
 
 const btnGenerateCharacter = document.getElementById('btn-generate-character');
@@ -43,13 +124,34 @@ btnGenerateCharacter.addEventListener('click', () => {
     const character = createCharacter();
     
     character.abilities = generateAbilities();
+
+    // new
+    getHighestScore(character.abilities);
+
+    character.calling = determineCalling(character.abilities);
+
     character.bonuses = generateBonuses(character.abilities);
 
-    displayCharacter.innerHTML = statNames.map(stat => `
+    const statsHTML = statNames.map(stat => `
         <p>
             <strong>${stat.name}</strong> (${stat.key}):
             ${character.abilities[stat.key]}
-            <em>- ${character.bonuses[stat.key]}</em>
+            <em> - ${character.bonuses[stat.key]}</em>
         </p>
     `).join('');
+
+    const callingHTML = `
+        <h3>Calling</h3>
+        <p>
+            <strong>${character.calling.calling}</strong>
+            (based on ${character.calling.key})
+        </p>
+    `;
+
+    displayCharacter.innerHTML = `
+        ${callingHTML}
+        <hr>
+        <h3>Abilities</h3>
+        ${statsHTML}
+    `;
 });
