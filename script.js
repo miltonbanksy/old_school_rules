@@ -1,12 +1,13 @@
 const statNames = [
-    { key: "STR", name: "Strength", bonus: "Melee Attack" },
-    { key: "DEX", name: "Dexterity", bonus: "Rogue Skills" },
-    { key: "CON", name: "Constitution", bonus: "Hit Points" },
-    { key: "INT", name: "Intelligence", bonus: "Spellcasting" },
-    { key: "WIS", name: "Wisdom", bonus: "Ranged Attack" },
-    { key: "CHA", name: "Charisma", bonus: "One ability score" }
+    {name: "Strength", bonus: "Melee Attack +2"},
+    {name: "Dexterity", bonus: "Rogue Skills +2"},
+    {name: "Constitution", bonus: "Hit Points +2"},
+    {name: "Intelligence", bonus: "Spellcasting +2"},
+    {name: "Wisdom", bonus: "Ranged Attack +2"},
+    {name: "Charisma", bonus: "One ability score +2"}
 ];
 
+<<<<<<< HEAD
 const callings = [
     {
         calling: "Fighter",
@@ -108,6 +109,8 @@ function createCharacter() {
         bonuses: {}
     };
 }
+=======
+>>>>>>> parent of 3982f65 (ChatGPT fixed it for me. I am an AI slave 😭)
 
 function renderCalling(character) {
     if (!character.calling) {
@@ -120,6 +123,7 @@ function renderCalling(character) {
 const btnGenerateCharacter = document.getElementById('btn-generate-character');
 const displayCharacter = document.getElementById('display-character');
 
+<<<<<<< HEAD
 btnGenerateCharacter.addEventListener('click', () => {
     const character = createCharacter();
     
@@ -155,3 +159,5 @@ btnGenerateCharacter.addEventListener('click', () => {
         ${statsHTML}
     `;
 });
+=======
+>>>>>>> parent of 3982f65 (ChatGPT fixed it for me. I am an AI slave 😭)
