@@ -8,8 +8,57 @@
 </head>
 <body>
     <h1>Old School Rules</h1>
-    <button id="btn-generate-character">Random Character</button>
-    <div id="display-character"></div>
+    <h2>1. Assign Ability Scores</h2>
+    <button id="btn-generate-character">Random Ability Scores</button>
+    <div id="display-ability-scores"></div>
+    <br>
+    <div id="frame-display-table">
+        <h2>2. Choose a Calling</h2>
+        <table class="cursor-default">
+            <tr>
+                <th>Class</th>
+                <th>AC</th>
+                <th>HP</th>
+                <th>Armor</th>
+                <th>Weapon</th>
+                <th>Gear</th>
+            </tr>
+            <tr id="table-row-fighter">
+                <td>Fighter</td>
+                <td>5</td>
+                <td>1d8</td>
+                <td>Chainmail</td>
+                <td>Melee, 2-Hand (greatsword, warhammer, axe, etc.)</td>
+                <td>Rope</td>
+            </tr>
+            <tr id="table-row-rogue">
+                <td>Rogue</td>
+                <td>7</td>
+                <td>1d6</td>
+                <td>Leather</td>
+                <td>Ranged (bow, sling, crossbow, etc.)</td>
+                <td>Tinkering Tools, Rope</td>
+            </tr>
+            <tr id="table-row-wizard">
+                <td>Wizard</td>
+                <td>10</td>
+                <td>1d4</td>
+                <td>None</td>
+                <td>Improvised (staff, knife, etc.)</td>
+                <td>Spellbook, Rope</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    
+    <div id="frame-display-character">
+        <div id="display-character"></div>
+        <div id="display-ability-scores2"></div>
+    </div>
+    
+    <br><br>
+    
     <script src="script.js"></script>
 </body>
 </html>

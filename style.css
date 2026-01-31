@@ -1,3 +1,40 @@
 html {
+    font-size: 14px;
+    max-width: 480px;
     padding: 20px;
+    background-color: rgb(227, 251, 255);
+}
+
+.hide {
+    display: none;
+}
+
+table, tr, th, td {
+    border: 1px solid gray;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    padding: 6px;
+}
+
+tr {
+    height: 70px;
+}
+
+.cursor-default {cursor: default;}
+
+#table-row-fighter:hover {
+    background-color: rgb(255, 201, 201);
+}
+
+#table-row-rogue:hover {
+    background-color: rgb(201, 255, 204);
+}
+
+#table-row-wizard:hover {
+    background-color: rgb(220, 201, 255);
 }
