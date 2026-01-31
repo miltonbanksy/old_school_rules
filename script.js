@@ -153,6 +153,13 @@ function generateCharacterDetails(calling) {
     
     displayGear.innerHTML = `
         <br>
+        <b>Level 1 Saving Throws</b>
+        <br>Paralysis, Poison, Death: 8
+        <br>Rods, Sticks, Wands: 7
+        <br>Petrification or Metamorphosis: 6
+        <br>Dragon's Breath: 5
+        <br>Spells: 4
+        <br><br>
         <b>Gear</b>
         <br>Armor: ${charClass.armor}
         <br>Weapon: ${charClass.weapon}
