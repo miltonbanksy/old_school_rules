@@ -15,7 +15,7 @@ const callings = [
         startingHP: () => roll1dx(8),
         armor: "Chainmail",
         weapon: "Melee Two-Handed (greatsword, warhammer, greataxe, etc.)",
-        gear: ""
+        gear: "Rope"
     },
     {
         calling: "Wizard",
@@ -24,7 +24,7 @@ const callings = [
         startingHP: () => roll1dx(4),
         armor: "None",
         weapon: "Improvised (staff, knife, etc.)",
-        gear: "Spellbook"
+        gear: "Spellbook, Rope"
     },
     {
         calling: "Rogue",
@@ -33,15 +33,10 @@ const callings = [
         startingHP: () => roll1dx(6),
         armor: "Leather",
         weapon: "Ranged (bow, sling, crossbow, etc.)",
-        gear: "Thieves Tools"
+        gear: "Thieves Tools, Rope"
     }
 ];
 
-const startingGear = [
-    {item: "Torches", action: roll1dx(6)},
-    {item: "Coins", action: roll1dx(10)},
-    {item: "Supplies", action: roll1dx(4)},
-];
 
 function roll1dx(die_size) {
     return Math.floor(Math.random() * die_size) + 1;
@@ -103,7 +98,11 @@ btnGenerateCharacter.addEventListener('click', () => {
     `).join('');
 });
 
-
+const startingGear = [
+    {item: "Torches", action: roll1dx(6)},
+    {item: "Coins", action: roll1dx(10)},
+    {item: "Supplies", action: roll1dx(4)},
+];
 
 
 function generateCharacterDetails(calling) {
@@ -130,6 +129,10 @@ function generateCharacterDetails(calling) {
         wizardLevel = 1;
     };
 
+    const amountTorches = roll1dx(6);
+    const amountCoins = roll1dx(10);
+    const amountSupplies = roll1dx(4);
+
     displayCharacter.innerHTML = `
         <h2>Character Summary</h2>
         <strong>Fighter</strong> (${fighterLevel})
@@ -146,6 +149,18 @@ function generateCharacterDetails(calling) {
             <em>- ${character.bonuses[stat.key]}</em>
         </div>
     `).join('');
+
+    
+    displayGear.innerHTML = `
+        <br>
+        <b>Gear</b>
+        <br>Armor: ${charClass.armor}
+        <br>Weapon: ${charClass.weapon}
+        <br>Backpack: ${charClass.gear},
+        Torches (${amountTorches})
+        Coins (${amountCoins})
+        Supplies (${amountSupplies})
+    `;
 }
 
 
@@ -157,6 +172,7 @@ const tableRowWizard = document.getElementById('table-row-wizard');
 const frameDisplayCharacter = document.getElementById('frame-display-character');
 const displayCharacter = document.getElementById('display-character');
 const displayAbilityScores2 = document.getElementById('display-ability-scores2');
+const displayGear = document.getElementById('display-gear');
 
 
 tableRowFighter.addEventListener('click', () => {
