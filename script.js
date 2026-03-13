@@ -218,5 +218,5 @@ btnCreateSpell.addEventListener('click', () => {
 
     const random_spell_verb_caps = capitalizeFirstLetter(random_spell_verb);
     const random_spell_subject_caps = capitalizeFirstLetter(random_spell_subject);
-    displayCreateSpell.innerHTML = `${random_spell_verb_caps} ${random_spell_subject_caps}, Range ${random_spell_range}.`
+    displayCreateSpell.innerHTML = `${random_spell_verb_caps} ${random_spell_subject_caps}, Range ${random_spell_range} ft.`
 });
