@@ -37,6 +37,9 @@ const callings = [
     }
 ];
 
+const spell_verbs = ["create", "destroy", "modify", "percieve"];
+const spell_subjects = ["water", "air", "fire", "plant", "illusions", "mind", "body", "animal", "earth", "metal"];
+
 
 function roll1dx(die_size) {
     return Math.floor(Math.random() * die_size) + 1;
@@ -46,6 +49,12 @@ function roll4d4() {
     return Array.from({ length: 4 }, () =>
         Math.floor(Math.random() * 4) + 1
     ).reduce((a, b) => a + b);
+}
+
+function capitalizeFirstLetter(inputElement) {
+    if (inputElement.length > 0) {
+        return inputElement.charAt(0).toUpperCase() + inputElement.slice(1).toLowerCase();
+    }
 }
 
 function generateAbilities() {
@@ -192,4 +201,22 @@ tableRowRogue.addEventListener('click', () => {
 
 tableRowWizard.addEventListener('click', () => {
     generateCharacterDetails('Wizard');
+});
+
+function get_value_from_array(array) {
+    const index = Math.floor(Math.random() * array.length);
+    return array[index];
+};
+
+const btnCreateSpell = document.querySelector("#btn-create-spell");
+const displayCreateSpell = document.querySelector("#display-create-spell");
+
+btnCreateSpell.addEventListener('click', () => {
+    const random_spell_range = roll1dx(20);
+    const random_spell_verb = get_value_from_array(spell_verbs);
+    const random_spell_subject = get_value_from_array(spell_subjects);
+
+    const random_spell_verb_caps = capitalizeFirstLetter(random_spell_verb);
+    const random_spell_subject_caps = capitalizeFirstLetter(random_spell_subject);
+    displayCreateSpell.innerHTML = `${random_spell_verb_caps} ${random_spell_subject_caps}, Range ${random_spell_range}.`
 });
