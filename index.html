@@ -5,11 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old School Rule</title>
     <link rel="stylesheet" href="style.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Old School Rules</h1>
+    <h1 class="eagle-lake-regular">Old School Rules</h1>
     <details>
-        <summary style="font-weight: bold;">Character Creation</summary>
+        <summary><b>Resolve Actions</b></summary>
+        <p>When a character attempts an action, whose failure might have consequences:</p>
+        <ol>
+            <p>Roll a d20 less than or equal to the value of the most appropriate ability, the action is successful.</p>
+        </ol>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Combat</b></summary>
+        <h3 style="color: rgb(65, 3, 124);">Initiative</h3>
+        <p>Each <b>party</b> rolls a d6. Highest result acts first.</p>
+        <h3 style="color: rgb(65, 3, 124);">Attack</h3>
+        <p>Attacker rolls a d20.</p>
+        <p>If the result is less than or equal to the sum of attacker's <b>Figher Level</b> + their <b>Opponent's Armor class</b> + <b>any bonuses or penalties</b>, the attack is successful.</b></p>
+        <h3 style="color: rgb(65, 3, 124);">Damage</h3>
+        <p>Roll for weapon damage. (Usually 1d6.) Subtract result from opponents HP. At 0 HP, opponent is out of the fight.</p>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Saves</b></summary>
+        <p>When a character passively attempts to save themselves from danger.</p>
+        <ol>
+            <p>Roll a d20 less than or equal to the value shown on the following table, the save is successful.</p>
+        </ol>
+
+        <table>
+            <tr>
+                <th>Level</th><th>Paralysis, Poison, Death</th><th>Rods, Sticks, Wands</th><th>Petrification, Metamorphosis</th><th>Dragon's Breath</th><th>Spells</th>
+            </tr>
+            <tr>
+                <td>0</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td>
+            </tr>
+            <tr>
+                <td>1-3</td><td>8</td><td>7</td><td>6</td><td>5</td><td>4</td>
+            </tr>
+            <tr>
+                <td>4-6</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td>
+            </tr>
+            <tr>
+                <td>7-9</td><td>12</td><td>11</td><td>10</td><td>10</td><td>8</td>
+            </tr>
+            <tr>
+                <td>10-12</td><td>14</td><td>13</td><td>12</td><td>12</td><td>10</td>
+            </tr>
+            <tr>
+                <td>13-15</td><td>16</td><td>15</td><td>14</td><td>15</td><td>12</td>
+            </tr>
+            <tr>
+                <td>16-18</td><td>18</td><td>17</td><td>16</td><td>17</td><td>14</td>
+            </tr>
+            <tr>
+                <td>19-21</td><td>18</td><td>18</td><td>18</td><td>18</td><td>16</td>
+            </tr>
+            <tr>
+                <td>22+</td><td>18</td><td>18</td><td>18</td><td>18</td><td>18</td>
+            </tr>
+        </table>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Rogue Skills</b></summary>
+        <P>Characters who have at least one level of Rogue can attempt to use the following skills: Open Locks, Find Traps, Remove Traps, Climb Steep Walls, Hide in Shadows, and Pickpocketing.</P>
+        <p></p>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Character Creation</b></summary>
         <h3>1. Assign Ability Scores</h3>
         <button id="btn-generate-character">Random Ability Scores</button>
         <div id="display-ability-scores"></div>
@@ -26,7 +104,7 @@
                     <th>Gear</th>
                 </tr>
                 <tr id="table-row-fighter">
-                    <td>Fighter</td>
+                    <th>Fighter</th>
                     <td>5</td>
                     <td>1d8</td>
                     <td>Chainmail</td>
@@ -34,7 +112,7 @@
                     <td>Rope</td>
                 </tr>
                 <tr id="table-row-rogue">
-                    <td>Rogue</td>
+                    <th>Rogue</th>
                     <td>7</td>
                     <td>1d6</td>
                     <td>Leather</td>
@@ -42,7 +120,7 @@
                     <td>Tinkering Tools, Rope</td>
                 </tr>
                 <tr id="table-row-wizard">
-                    <td>Wizard</td>
+                    <th>Wizard</th>
                     <td>10</td>
                     <td>1d4</td>
                     <td>None</td>
@@ -60,8 +138,10 @@
             <div id="display-gear"></div>
         </div>
     </details>
+    <br>
     <details>
         <summary style="font-weight: bold">Create Spell</summary>
+        <br>
         <button id="btn-create-spell">Create Random Spell</button>
         <p id="display-create-spell"></p>
     </details>

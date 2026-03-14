@@ -5,8 +5,22 @@ html {
     background-color: rgb(255, 181, 181);
 }
 
+.eagle-lake-regular {
+  font-family: "Eagle Lake", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .hide {
     display: none;
+}
+
+details {
+    padding: 8px;
+    cursor: pointer;
+    background-color: blanchedalmond;
+    border-radius: 20px;
 }
 
 table, tr, th, td {
@@ -28,13 +42,17 @@ tr {
 .cursor-default {cursor: default;}
 
 #table-row-fighter:hover {
-    background-color: rgb(255, 201, 201);
+    background-color: rgb(222, 100, 100);
+    border: 5px solid black;
+    box-shadow: 2px 2px 2px black;
 }
 
 #table-row-rogue:hover {
-    background-color: rgb(201, 255, 204);
+    background-color: rgb(222, 150, 100);
+    box-shadow: 2px 2px 2px black;
 }
 
 #table-row-wizard:hover {
-    background-color: rgb(220, 201, 255);
+    background-color: rgb(222, 200, 100);
+    box-shadow: 2px 2px 2px black;
 }
