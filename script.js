@@ -40,6 +40,35 @@ const callings = [
 const spell_verbs = ["create", "destroy", "modify", "percieve"];
 const spell_subjects = ["water", "air", "fire", "plant", "illusions", "mind", "body", "animal", "earth", "metal"];
 
+function findSumOfArray(array) {
+    console.log(array);
+    return array.reduce((acc, cur) => acc + cur, 0);
+}
+
+function findLowestNumberInArray(array) {
+    return array.reduce((a, b) => Math.min(a, b));
+}
+
+function findHighestNumberInArray(array) {
+    let max = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+
+    return max;
+}
+
+function rollxdx(number_of_dice, number_of_sides) {
+    dice_pool = [];
+    for (let d = 0; d < number_of_dice; d++) {
+        const roll = Math.floor(Math.random() * number_of_sides +1 );
+        dice_pool.push(roll);
+    }
+    return dice_pool;
+}
 
 function roll1dx(die_size) {
     return Math.floor(Math.random() * die_size) + 1;
@@ -177,7 +206,58 @@ function generateCharacterDetails(calling) {
         Coins (${amountCoins})
         Supplies (${amountSupplies})
     `;
-}
+};
+
+const monsters = [
+    {"type": "common", hd: () => roll1dx(4), attacks: () => 1},
+    {"type": "miniboss", hd: () => roll1dx(8), attacks: () => findLowestNumberInArray(rollxdx(2, 4))},
+    {"type": "boss", hd: () => roll1dx(12), attacks: () => findHighestNumberInArray(rollxdx(2, 4))},
+    {"type": "legendary", hd: () => roll1dx(20), attacks: () => roll1dx(8)}
+];
+
+const btnGenerateMonster = document.querySelector("#btn-generate-monster");
+const displayGenerateMonster = document.querySelector("#display-generate-monster");
+const btnsMonsterType = document.querySelectorAll(".btn-monster");
+
+function findMonsterType(button) {
+    const monster = monsters.find(type => type["type"] === button.value);
+    return monster;
+};
+
+btnsMonsterType.forEach(button => {
+    button.addEventListener('click', () => {
+
+        const monster = findMonsterType(button);
+
+        const monster_hd = monster.hd();
+        console.log(`HD: ${monster_hd}`)
+        
+        const monster_hp = roll1dx(monster_hd);
+        console.log(`HP: ${monster_hp}`);
+
+        const monster_attacks = monster.attacks();
+        
+        console.log(`Attacks: ${monster_attacks}`);
+
+        // These stats are generated the same regardless of type:
+        const monster_ac = roll1dx(10);
+        const roll_3d6 = rollxdx(3, 6);
+        const monster_save = findSumOfArray(roll_3d6);
+        const roll2d4 = rollxdx(2, 4);
+        console.log(roll2d4);
+        const monster_attack_bonus = findLowestNumberInArray(roll2d4);
+        console.log(monster_attack_bonus);
+
+        // Display Monster Stats:
+        displayGenerateMonster.innerHTML = `
+            Monster Type: ${monster['type']}
+            <br>AC: ${monster_ac}, HD: ${monster_hd}, HP: ${monster_hp}
+            <br>Attacks: ${monster_attacks}
+            <br>Save: ${monster_save}
+            <br>Attack and Special Bonus: +${monster_attack_bonus}
+        `; 
+    });
+});
 
 
 const frameDisplayTable = document.getElementById('frame-display-table');

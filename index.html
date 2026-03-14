@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="eagle-lake-regular">Old School Rules</h1>
+    <h1 class="eagle-lake-regular">Old School Rules 🐲</h1>
+    <h4>by <a href="https://michele-pavani.itch.io/old-school-rules">Michele Pavani (Link: itch.io)</a></h4>
     <details>
         <summary><b>Resolve Actions</b></summary>
         <p>When a character attempts an action, whose failure might have consequences:</p>
         <ol>
-            <p>Roll a d20 less than or equal to the value of the most appropriate ability, the action is successful.</p>
+            <p>Roll a d20 less than or equal to the value of the most appropriate ability.</p>
         </ol>
     </details>
 
@@ -27,10 +28,11 @@
         <h3 style="color: rgb(65, 3, 124);">Initiative</h3>
         <p>Each <b>party</b> rolls a d6. Highest result acts first.</p>
         <h3 style="color: rgb(65, 3, 124);">Attack</h3>
-        <p>Attacker rolls a d20.</p>
-        <p>If the result is less than or equal to the sum of attacker's <b>Figher Level</b> + their <b>Opponent's Armor class</b> + <b>any bonuses or penalties</b>, the attack is successful.</b></p>
+        <p>Roll a d20 less than or equal to the sum of attacker's <b>Figher Level</b> + their <b>Opponent's Armor class</b> + <b>any bonuses or penalties</b>.</p>
         <h3 style="color: rgb(65, 3, 124);">Damage</h3>
-        <p>Roll for weapon damage. (Usually 1d6.) Subtract result from opponents HP. At 0 HP, opponent is out of the fight.</p>
+        <p>Roll for weapon damage. (Usually 1d6.)</p>
+        <p>Subtract result from opponents HP.</p>
+        <p></p>At 0 HP, opponent is out of the fight.</p>
     </details>
 
     <br>
@@ -39,7 +41,7 @@
         <summary><b>Saves</b></summary>
         <p>When a character passively attempts to save themselves from danger.</p>
         <ol>
-            <p>Roll a d20 less than or equal to the value shown on the following table, the save is successful.</p>
+            <p>Roll a d20 less than or equal to the value shown on the following table.</p>
         </ol>
 
         <table>
@@ -80,16 +82,48 @@
 
     <details>
         <summary><b>Rogue Skills</b></summary>
-        <P>Characters who have at least one level of Rogue can attempt to use the following skills: Open Locks, Find Traps, Remove Traps, Climb Steep Walls, Hide in Shadows, and Pickpocketing.</P>
-        <p></p>
+        <P>Characters who have <b>at least one level of Rogue</b> can attempt to use the following skills: Open Locks, Find Traps, Remove Traps, Climb Steep Walls, Hide in Shadows, and Pickpocketing.</P>
+        <p>Roll a d20 less than or equal to the sum of the rogue's <b>Level</b> + <b>Armor Class</b> + <b>bonuses or penalities</b>.</p>
     </details>
 
     <br>
 
     <details>
-        <summary><b>Character Creation</b></summary>
+        <summary><b>Spell Casting</b></summary>
+        <p>Each time you gain a Wizard level, you get as many spells as the class level you have reached (Example: by reaching the second level of Wizard you will get two new spells).</p>
+        <p>Roll a d20 less than equal to the sum of the wizard's <b>Level</b> + their <b>Armor Class</b> + any <b>bonuses or penalites</b>.</p>
+        <p>If a spell hits a target, then it will deal 1d6 points of damage. If it is intended to heal then it will heal 1d6 hit points.</p>
+    </details>
+
+    <br>
+
+    <details>
+        <summary style="font-weight: bold">Spell Generator</summary>
+        <br>
+        <button id="btn-create-spell">Create Random Spell</button>
+        <p id="display-create-spell"></p>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Monster Generator</b></summary>
+        <br>
+        
+        <button class="btn-monster" id="btn-monster-common" value="common">Common</button>
+        <button class="btn-monster" id="btn-monster-miniboss" value="miniboss">Mini-Boss</button>
+        <button class="btn-monster" id="btn-monster-boss" value="boss">Boss</button>
+        <button class="btn-monster" id="btn-monster-legendary" value="legendary">Legendary</button>
+        
+        <p id="display-generate-monster"></p>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><b>Character Generator</b></summary>
         <h3>1. Assign Ability Scores</h3>
-        <button id="btn-generate-character">Random Ability Scores</button>
+        <button id="btn-generate-character">Generate Ability Scores</button>
         <div id="display-ability-scores"></div>
         <br>
         <div id="frame-display-table">
@@ -138,14 +172,6 @@
             <div id="display-gear"></div>
         </div>
     </details>
-    <br>
-    <details>
-        <summary style="font-weight: bold">Create Spell</summary>
-        <br>
-        <button id="btn-create-spell">Create Random Spell</button>
-        <p id="display-create-spell"></p>
-    </details>
-    
     
     <br><br>
     
