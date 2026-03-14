@@ -24,7 +24,7 @@ const callings = [
         startingHP: () => roll1dx(4),
         armor: "None",
         weapon: "Improvised (staff, knife, etc.)",
-        gear: "Spellbook, Rope"
+        gear: "Spellbook (Roll 1 spell), Rope"
     },
     {
         calling: "Rogue",
@@ -173,9 +173,9 @@ function generateCharacterDetails(calling) {
 
     displayCharacter.innerHTML = `
         <h2>Character Summary</h2>
-        <strong>Fighter</strong> (${fighterLevel})
-        <strong>Rogue</strong> (${rogueLevel})
-        <strong>Wizard</strong> (${wizardLevel})
+        <strong>Fighter ${fighterLevel}</strong>,
+        <strong>Rogue ${rogueLevel}</strong>,
+        <strong>Wizard ${wizardLevel}</strong>
         <br>AC${charClass.startingAC}, HD${charClass.startingHD}, HP${charClass.startingHP()}
         <br><br><b>Ability Scores</b>
     `;
