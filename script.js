@@ -232,7 +232,7 @@ btnsMonsterType.forEach(button => {
         const monster_hd = monster.hd();
         console.log(`HD: ${monster_hd}`)
         
-        const monster_hp = roll1dx(monster_hd);
+        const monster_hp = findSumOfArray(rollxdx(monster_hd, 6));
         console.log(`HP: ${monster_hp}`);
 
         const monster_attacks = monster.attacks();
