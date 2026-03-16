@@ -37,6 +37,12 @@ const callings = [
     }
 ];
 
+const imgDiceD6 = document.querySelector("#img-dice-d6")
+const imgDiceD20 = document.querySelector("#img-dice-d20")
+
+// logic for dice...
+
+
 const spell_verbs = ["create", "destroy", "modify", "percieve"];
 const spell_subjects = ["water", "air", "fire", "plant", "illusions", "mind", "body", "animal", "earth", "metal"];
 
