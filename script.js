@@ -323,3 +323,58 @@ btnCreateSpell.addEventListener('click', () => {
     const random_spell_subject_caps = capitalizeFirstLetter(random_spell_subject);
     displayCreateSpell.innerHTML = `${random_spell_verb_caps} ${random_spell_subject_caps}, Range ${random_spell_range} ft.`
 });
+
+
+const dungeon_rooms = {
+    1: {"content": "NPC(s) / Monster(s)", "treasure": () => getTreasure(4), "details": "If treasure exists, it is likely to be hidden or stashed in a lair, rather than carried around."},
+    2: {"content": "NPC(s) / Monster(s)", "treasure": () => getTreasure(4), "details": "If treasure exists, it is likely to be hidden or stashed in a lair, rather than carried around."},
+    3: {"content": "Trap(s), Hazard(s), Block(s)", "treasure": () => getTreasure(5), "details": "Whether treasure is present or not, there will be a complication to overcome."},
+    4: {"content": "Special, Unique, Trick, Puzzle, Lore, Clue, etc.", "treasure": () => "GM discretion", "details": "A choice may be presented."},
+    5: {"content": "Empty, Theme", "treasure": () => getTreasure(6), "details": "The chance of finding tresure here is very low, and if so, it will be well hidden."},
+    6: {"content": "Empty, Theme", "treasure": () => getTreasure(6), "details": "The chance of finding tresure here is very low, and if so, it will be well hidden."}
+};
+
+function getTreasure(target_roll) {
+    let treasure = "No";
+    const roll = Math.floor(Math.random() * 6) +1;
+    console.log(`Treasure Roll: ${roll}`);
+    return treasure = (roll >= target_roll) ? "Yes" : "No";
+};
+
+const btnGenerateDungeonRoom = document.querySelector("#btn-generate-dungeon-room");
+const displayDungeonRoom = document.querySelector("#display-dungeon-room");
+
+btnGenerateDungeonRoom.addEventListener('click', () => {
+    const roll = Math.floor(Math.random() * 6) +1;
+    const dungeonRoomContent = dungeon_rooms[roll].content;
+    const treasureDetails = dungeon_rooms[roll].details;
+    const treasure = dungeon_rooms[roll].treasure();
+
+    /*
+    if (btnRevealTreasure) {
+        btnRevealTreasure.remove();
+    }
+
+    if (displayRevealTreasure) {
+        displayRevealTreasure.remove();
+    }
+    */
+
+    displayDungeonRoom.innerHTML = `
+        Content: ${dungeonRoomContent}
+        <br>${treasureDetails}
+    `;
+    
+
+    const detailDungeonRoom = document.querySelector("#detail-dungeon-room");
+    const btnRevealTreasure = document.createElement("Button");
+    const displayRevealTreasure = document.createElement("p");
+    btnRevealTreasure.textContent = "Reveal Treasure";
+    detailDungeonRoom.appendChild(btnRevealTreasure);
+    detailDungeonRoom.appendChild(displayRevealTreasure);
+
+    btnRevealTreasure.addEventListener('click', () => {
+        btnRevealTreasure.remove();
+        displayRevealTreasure.innerHTML = `Treasure ${treasure}`;
+    });
+});
