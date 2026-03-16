@@ -367,9 +367,18 @@ btnGenerateDungeonRoom.addEventListener('click', () => {
     
 
     const detailDungeonRoom = document.querySelector("#detail-dungeon-room");
-    const btnRevealTreasure = document.createElement("Button");
+
+    // remove old reveal elements
+    detailDungeonRoom.querySelectorAll(".treasure-reveal").forEach(el => el.remove());
+
+    const btnRevealTreasure = document.createElement("button");
     const displayRevealTreasure = document.createElement("p");
+
     btnRevealTreasure.textContent = "Reveal Treasure";
+
+    btnRevealTreasure.classList.add("treasure-reveal");
+    displayRevealTreasure.classList.add("treasure-reveal");
+
     detailDungeonRoom.appendChild(btnRevealTreasure);
     detailDungeonRoom.appendChild(displayRevealTreasure);
 
