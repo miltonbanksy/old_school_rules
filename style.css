@@ -16,6 +16,10 @@ html {
     display: none;
 }
 
+.img-dice {
+    width: 50px;
+}
+
 details {
     padding: 8px;
     cursor: pointer;
