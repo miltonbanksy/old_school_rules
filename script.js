@@ -37,11 +37,27 @@ const callings = [
     }
 ];
 
-const imgDiceD6 = document.querySelector("#img-dice-d6")
-const imgDiceD20 = document.querySelector("#img-dice-d20")
+const imgDiceD6 = document.querySelector("#img-dice-d6");
+const imgDiceD20 = document.querySelector("#img-dice-d20");
+const displayDiceResult = document.querySelector("#display-dice-result");
 
 // logic for dice...
+imgDiceD6.addEventListener('click', () => {
+    imgDiceD6.classList.toggle('rotated');
+    setTimeout(() => {
+        const d6 = Math.floor(Math.random() * 6) +1;
+        displayDiceResult.innerHTML = `D6: ${d6}`;
+    }, 800);
+    
+});
 
+imgDiceD20.addEventListener('click', () => {
+    imgDiceD20.classList.toggle('rotated');
+    setTimeout(() => {
+        const d20 = Math.floor(Math.random() * 20) +1;
+        displayDiceResult.innerHTML = `D20: ${d20}`;
+    }, 800);
+});
 
 const spell_verbs = ["create", "destroy", "modify", "percieve"];
 const spell_subjects = ["water", "air", "fire", "plant", "illusions", "mind", "body", "animal", "earth", "metal"];
@@ -68,10 +84,9 @@ function findHighestNumberInArray(array) {
 }
 
 function rollxdx(number_of_dice, number_of_sides) {
-    dice_pool = [];
+    let dice_pool = [];
     for (let d = 0; d < number_of_dice; d++) {
-        const roll = Math.floor(Math.random() * number_of_sides +1 );
-        dice_pool.push(roll);
+        dice_pool.push(Math.floor(Math.random() * number_of_sides) +1 );
     }
     return dice_pool;
 }

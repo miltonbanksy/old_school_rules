@@ -21,6 +21,18 @@ html {
     height: 40px;
 }
 
+.spin {
+    transition: transform 1.0s ease-in-out;
+}
+
+.rotated {
+    transform: rotate(720deg);
+}
+
+#display-dice-result {
+   font-size: 40px;
+}
+
 details {
     padding: 8px;
     cursor: pointer;
