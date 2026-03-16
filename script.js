@@ -43,6 +43,7 @@ const displayDiceResult = document.querySelector("#display-dice-result");
 
 // logic for dice...
 imgDiceD6.addEventListener('click', () => {
+    displayDiceResult.innerHTML = "";
     imgDiceD6.classList.toggle('rotated');
     setTimeout(() => {
         const d6 = Math.floor(Math.random() * 6) +1;
@@ -52,6 +53,7 @@ imgDiceD6.addEventListener('click', () => {
 });
 
 imgDiceD20.addEventListener('click', () => {
+    displayDiceResult.innerHTML = "";
     imgDiceD20.classList.toggle('rotated');
     setTimeout(() => {
         const d20 = Math.floor(Math.random() * 20) +1;
