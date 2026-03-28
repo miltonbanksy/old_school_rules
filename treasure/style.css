@@ -1,0 +1,38 @@
+html {
+  max-width: 400px;
+  padding: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+}
+
+label {
+  width: 250px;
+}
+
+input {
+  font-size: 18px;
+}
+
+.form-grid {
+  display: grid; /* Makes the form a grid container */
+  grid-template-columns: 200px 1fr; /* Defines two columns: one fixed-width, one flexible */
+  gap: 10px; /* Adds space between grid items (rows and columns) */
+  align-items: center; /* Vertically aligns items in the center */
+}
+
+.form-grid label {
+  text-align: left; /* Aligns the label text to the right */
+}
+
+h1 {
+  text-shadow: 5px 5px 10px #00FF00;
+  text-shadow: 0 0 10px color-mix(in lch, rgb(43, 255, 0), rgb(165, 214, 32) 30%);
+}
+
+.input-number {
+    width: 80px;
+}
+
+button {
+  font-size: 18px;
+}

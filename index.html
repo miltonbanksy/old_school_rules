@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old School Rule</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="treasure/style.css">
+
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,9 +188,28 @@
         <button id="btn-generate-dungeon-room">Generate Dungeon Room</button>
         <p id="display-dungeon-room"></p>
     </details>
+
+    <br>
+
+    <details>
+        <summary class="eagle-lake-regular"><b>Treasure Distribution</b></summary>
+        <br>
+        <form class="form-grid">
+            <label for="input-number-of-treasure">How much treasure?</label>
+            <input class="input-number" id="input-number-of-treasure" type="number">
+            <label for="input-number-of-pcs">How many PCs?</label>
+            <input class="input-number" id="input-number-of-pcs" type="number">
+            <label for="input-number-of-hirelings">How many hirelings?</label>
+            <input class="input-number" id="input-number-of-hirelings" type="number">
+        </form>
+        <br>
+        <button id="btn-divide-treasure">Divide Treasure</button>
+        <p id="display-treasure-distribution"></p>
+    </details>
     
     <br><br>
     
     <script src="script.js"></script>
+    <script src="treasure/script.js"></script>
 </body>
 </html>
